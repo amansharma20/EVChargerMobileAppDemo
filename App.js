@@ -6,10 +6,6 @@ import CustomMarker from './components/marker';
 import FlatlistItem from "./components/FlatlistItem";
 import DATA from './assets/data/DummyData';
 import { icons } from './constants';
-// import Constants from 'expo-constants';
-// import * as Location from 'expo-location';
-
-// let apiKey = 'YOUR_API_KEY';
 
 export default function App() {
 
@@ -42,46 +38,6 @@ export default function App() {
     }
     map.current.animateToRegion(region);
   }, [selectedPlaceId])
-
-
-  // GET LIVE LOCATION 
-
-  // const [location, setLocation] = useState(null);
-  // const [errorMsg, setErrorMsg] = useState(null);
-  // const [address, setAddress] = useState(null);
-  // const [getLocation, setGetLocation] = useState(false);
-
-  // useEffect(() => {
-  //   (async () => {
-  //     let { status } = await Location.requestForegroundPermissionsAsync();
-  //     if (status !== 'granted') {
-  //       setErrorMsg('Permission to access location was denied');
-  //     }
-
-  //     Location.setGoogleApiKey(apiKey);
-
-  //     console.log(status);
-
-  //     let { coords } = await Location.getCurrentPositionAsync();
-
-  //     setLocation(coords);
-
-  //     console.log(coords);
-
-  //     if (coords) {
-  //       let { longitude, latitude } = coords;
-
-  //       let regionName = await Location.reverseGeocodeAsync({
-  //         longitude,
-  //         latitude,
-  //       });
-  //       setAddress(regionName[0]);
-  //       console.log(regionName, 'nothing');
-  //     }
-
-  //     // console.log();
-  //   })();
-  // }, [getLocation]);
 
   const initialRegion = {
     latitude: 28.476335498070025,
@@ -139,31 +95,6 @@ export default function App() {
       </View>
 
       <View style={styles.flatlistContainer}>
-
-        {/* BUTTON TO ASK CURRENT LOCATION  */}
-
-        {/* <Text style={styles.button}>
-          {!location
-            ? 'Waiting'
-            : `Lat: ${location.latitude} \nLong: ${location.longitude
-            } \n${JSON.stringify(address?.["subregion"])}`}
-        </Text>
-        <TouchableOpacity onPress={() => setGetLocation(!getLocation)}>
-          <View
-            style={{
-              height: 24,
-              backgroundColor: '#1D1E27',
-              justifyContent: 'center',
-              alignItems: 'center',
-              borderRadius: 10,
-              marginTop: 20,
-              width: '40%',
-              alignSelf: 'center'
-            }}>
-            <Text style={styles.btnText}> GET LOCATION </Text>
-          </View>
-        </TouchableOpacity> */}
-
         <FlatList
           ref={flatlist}
           data={DATA.chargers}
